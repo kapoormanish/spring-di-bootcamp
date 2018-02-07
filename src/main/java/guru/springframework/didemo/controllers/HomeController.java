@@ -10,7 +10,7 @@ public class HomeController {
 
     private HomeService homeService;
 
-    public HomeController(HomeService homeService) {
+    public HomeController(@Qualifier("homeServiceImpl2") HomeService homeService) {
         this.homeService = homeService;
     }
 
