@@ -1,11 +1,20 @@
 package guru.springframework.didemo.controllers;
 
+import guru.springframework.didemo.services.HomeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class HomeController {
-    public String hello(){
-        System.out.println("Hello");
-        return "Hello";
+
+    private HomeService homeService;
+
+    public HomeController(HomeService homeService) {
+        this.homeService = homeService;
+    }
+
+    public void hello(){
+        System.out.println(homeService.greetingMessage());
     }
 }
